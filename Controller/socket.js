@@ -11,10 +11,6 @@ module.exports.listen = (server, ServerEvent, colors) => {
 	
 	console.log('Socket ready');
 	
-	ServerEvent.on('myEventDone', (data, socket) => {
-		socket.emit('myEventDone', data);
-	});
-	
 	// Broadcast NewPizza for all users
 	ServerEvent.on('PizzaSaved', (data) => {
 		io.sockets.emit('NewPizza', data);

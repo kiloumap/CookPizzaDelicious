@@ -7,7 +7,7 @@
 const Pizza = require('../Model/pizzaSchema');
 const express = require('express');
 const router = express.Router();
-
+const ServerEvent = require('./ServerEvent');
 // -------------------------------------------------------------------------- //
 //                                Routes                                      //
 // -------------------------------------------------------------------------- //
@@ -58,7 +58,7 @@ function postPizza(req, res) {
             res.json({ message: err });
         }
         else { //If no errors, send it back to the client
-            res.json({ message: "Pizza successfully added :", savedPizza });
+            ServerEvent.emit('PizzaSaved', savedPizza);
             res.status(200).end();
         }
     });
@@ -183,5 +183,14 @@ function decodeBase64(base64){
 function encodeBase64(image){
   return new Buffer.from(image);
 }
+
+// -------------------------------------------------------------------------- //
+//                                Events                                      //
+// -------------------------------------------------------------------------- //
+console.log('pizzaEvent is Ready !!!');
+ServerEvent.on('myEvent', (data, socket) => {
+  console.log('This is myEvent call');
+  ServerEvent.emit('myEventDone', data, socket);
+});
 
 module.exports = router;
