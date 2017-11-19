@@ -1,7 +1,9 @@
 'use strict';
-// -------------------------------------------------------------------------- //
-//                              Recuperation                                  //
-// -------------------------------------------------------------------------- //
+/**
+ * Controller Pizza
+ * @requires Model
+ */
+
 const Pizza = require('../Model/pizzaSchema');
 const express = require('express');
 const router = express.Router();
@@ -9,7 +11,6 @@ const router = express.Router();
 // -------------------------------------------------------------------------- //
 //                                Routes                                      //
 // -------------------------------------------------------------------------- //
-
 router.post('/', (req, res, next) => {
     postPizza(req, res, next);
 });
@@ -37,9 +38,11 @@ router.put('/:name', (req, res, next) => {
 // -------------------------------------------------------------------------- //
 //                              Functions                                     //
 // -------------------------------------------------------------------------- //
-
-/*
- * POST /pizza to post a pizza 
+/**
+ * @function postPizza
+ * @param {function} req - a json containing the pizza body 
+ * @description POST pizza, picture property must be in utf-8
+ * @return {json} res - Pizza
  */
 function postPizza(req, res) {
     // Convert image to base64
@@ -61,8 +64,10 @@ function postPizza(req, res) {
     });
 }
 
-/*
- * GET /pizza to get a list of all pizzas
+/**
+ * @function getAllPizza
+ * @description GET ALL pizzas, picture property is decode to utf-8
+ * @return {json} res - All the pizzas
  */
 function getAllPizza(req, res) {
     Pizza.find({}, null, { sort: { update_at: -1 } })
@@ -82,8 +87,11 @@ function getAllPizza(req, res) {
     });
 }
 
-/*
- * GET /pizza/:name to get a pizza given its name
+/**
+ * @function getPizzaByName
+ * @param {function} req - a string containing the name of pizza to search
+ * @description GET pizza with name only
+ * @return {json} res - Pizza
  */
 function getPizzaByName(req, res){
     console.log(req.params.name);
@@ -99,8 +107,11 @@ function getPizzaByName(req, res){
 }
 getPizzaByPrice
 
-/*
- * GET /pizza/:price to get a pizzas given its price
+/**
+ * @function getPizzaByPrice
+ * @param {function} req - a Number containing the price of pizzas to search
+ * @description GET pizza with price only
+ * @return {json} res : Pizzas at this price
  */
 function getPizzaByPrice(req, res){
     console.log(req.params.name);
@@ -117,8 +128,11 @@ function getPizzaByPrice(req, res){
     }).sort( { price : -1})
 }
 
-/*
- * DELETE /pizza/:name to delete a pizza given its name 
+/**
+ * @function deletePizza
+ * @param {function} req - A name containing the pizza to delete
+ * @description DELETE pizza with this name
+ * @return {json} res - Pizza deleted
  */
 function deletePizza(req, res){
     Pizza.findOneAndRemove({name : req.params.name},  function (err, pizza){
@@ -134,8 +148,12 @@ function deletePizza(req, res){
     })
 }
 
-/*
- * PUT /pizza/:name to update a pizza given its name
+/**
+ * @function updatePizza
+ * @param {function} req - request
+ * @param {function} res - result
+ * @description PUT pizza, picture property must be in utf-8
+ * @return {json} Pizza
  */
 function updatePizza(req, res) {
      Pizza.findOneAndUpdate({name : req.params.name}, req.body, {new: true}, function (err, pizza) {
@@ -150,7 +168,8 @@ function updatePizza(req, res) {
 
 /**
  * @function decodeBase64
- * @params({function}) base64 - base64 to decode
+ * @params(string) base64 to decode
+ * @return {string} in utf-8
  */
 function decodeBase64(base64){
   return new Buffer.from(base64, 'base64');
@@ -158,7 +177,8 @@ function decodeBase64(base64){
 
 /**
  * @function encodeBase64
- * @params({function}) base64 - base64 to encode
+ * @params(string) image to encode
+ * @return {string} in base64
  */
 function encodeBase64(image){
   return new Buffer.from(image);

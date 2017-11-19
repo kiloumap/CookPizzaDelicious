@@ -1,14 +1,16 @@
 /** 
  * @file server.js
- * @desc Point d'entrée de l'application 'CookPizzaDelelicious'.<br />
- * L'application CookPizzaDelelicious permet de gérer une liste de pizza. <br />
+ * @desc CookPizzaDelelicious is an application to display a lot of amazing pizzas !.<br />
+ * SPOILER : Android / Ios coming soon !
  * 
  * Date de création 20/10/2017 <br />
  * Date de mofication 20/10/2017 <br />
  * 
  * @version Alpha 1.0.0
  * 
- * @author Laurent Martinez <laurent.martinez@ynov.com>
+ * @author Laurent Martinez 
+ * Mail laurent.martinez@ynov.com
+ * GitHub https://github.com/kiloumap/CookPizzaDelicious
  * 
  */
 'use strict';

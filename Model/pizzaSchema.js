@@ -10,7 +10,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Schema PizzaSchema
 /**
  * @class PizzaSchema
  * @param {String} name - Nameof the pizza (Required)

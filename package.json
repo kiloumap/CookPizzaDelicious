@@ -23,7 +23,8 @@
   },
   "scripts": {
     "start": "set NODE_ENV=dev && node server.js",
-    "test": "./node_modules/mocha/bin/mocha --exit"
+    "test": "./node_modules/mocha/bin/mocha --exit",
+    "doc": "./node_modules/.bin/documentation build ./server.js -f html -o docs"
   },
   "repository": {
     "type": "git",
