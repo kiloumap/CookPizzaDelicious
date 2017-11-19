@@ -12,26 +12,38 @@ const ServerEvent = require('./ServerEvent');
 //                                Routes                                      //
 // -------------------------------------------------------------------------- //
 router.post('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     postPizza(req, res, next);
 });
 
 router.get('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     getAllPizza(req, res, next);
 });
 
 router.get('/:name', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     getPizzaByName(req, res, next);
 });
 
 router.get('/sort/:price', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     getPizzaByPrice(req, res, next);   
 });
 
 router.delete('/:name', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     deletePizza(req, res, next);
 });
 
 router.put('/:name', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     updatePizza(req, res, next);
 })
 

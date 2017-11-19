@@ -12,26 +12,38 @@ const router = express.Router();
 //                                Routes                                      //
 // -------------------------------------------------------------------------- //
 router.post('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     postIngredient(req, res, next);
 });
 
 router.get('/', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     getAllIngredients(req, res, next);
 })
 
 router.get('/:name', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     getIngredientByName(req, res, next);
 })
 
 router.get('/sort', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     getIngredientByNameSorted(req, res, next);
 })
 
 router.delete('/:name', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     deleteIngredient(req, res, next);
 })
 
 router.put('/:name', (req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     updateIngredient(req, res, next);
 })
 
