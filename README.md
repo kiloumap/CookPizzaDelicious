@@ -72,17 +72,20 @@ Each ingredient has some pizza in pizza_ids for each pizza who's contain this in
 
 
 ### ROUTES PIZZA
-GET ALL PIZZA       -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza  
+GET ALL PIZZA       -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza      
 GET PIZZA           -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:name  
-GET PIZZA           -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:price  
-POST PIZZA          -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza   
-PUT PIZZA           -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:name  
-DELETE PIZZA        -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:name 
+GET PIZZA           -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:price    
+POST PIZZA          -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza      
+PUT PIZZA           -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:name      
+DELETE PIZZA        -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/pizza/:name    
 
 ### ROUTES INGREDIENTS
-GET ALL INGREDIENTS -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient  
-GET INGREDIENTS     -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient/:name 
-GET INGREDIENTS     -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient/sort
-POST INGREDIENTS    -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient   
-PUT INGREDIENTS     -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient/:name  
-DELETE INGREDIENTS  -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient:name 
+GET ALL INGREDIENTS -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient       
+GET INGREDIENTS     -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient/:name     
+GET INGREDIENTS     -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient/sort    
+POST INGREDIENTS    -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient       
+PUT INGREDIENTS     -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient/:name     
+DELETE INGREDIENTS  -> https://cook-pizza-delicious-martinez-kiloumap.c9users.io/ingredient:name    
+
+### See the docs 
+https://preview.c9users.io/kiloumap/cook_pizza_delicious_martinez/docs/index.html
