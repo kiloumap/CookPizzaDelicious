@@ -1,6 +1,7 @@
 'use strict';
-
-// TODO: Make Doc
+/**
+ * Controller Socket
+ */
 // -------------------------------------------------------------------------- //
 //                              Recuperation                                  //
 // -------------------------------------------------------------------------- //
@@ -13,21 +14,17 @@ module.exports.listen = (server, ServerEvent, colors) => {
 	
 	// Broadcast NewPizza for all users
 	ServerEvent.on('PizzaSaved', (data) => {
+		console.log('Emit: myEvent');
 		io.sockets.emit('NewPizza', data);
 	});
 	
-	// TODO: Create the Update ingredient Event & Socket
-	// TODO: Create the Remove ingredient Event & Socket
-	// TODO: Create the Update pizza Event & Socket
-	// TODO: Create the Remove pizza Event & Socket
-	
 	// On Open Socket
-  io.sockets.on('connection', (socket) => {
+	io.sockets.on('connection', (socket) => {
 		console.log(`Client Connecté: ${socket.id}`);
 		
 		socket.on('myEvent', (data) => {
 			ServerEvent.emit('myEvent', data, socket);
-			console.log('Emit: myEvent');
+			
 		});
-  });
+	});
 };
