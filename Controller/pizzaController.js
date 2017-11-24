@@ -106,18 +106,17 @@ function getAllPizza(req, res) {
  * @return {json} res - Pizza
  */
 function getPizzaByName(req, res){
-    console.log(req.params.name);
-    Pizza.findOne({name : req.params.name}, (err, pizza) =>{
+    Pizza.findOne({name : req.params.name}, null)
+    .populate('ingredient_ids')
+    .exec((err, pizza) => {
         if(err){
           res.send(err);
         } else { //If no error, send pizza
-            console.log(pizza);
             pizza.picture = decodeBase64(pizza.picture);
             res.json(pizza);
         }
     })
 }
-getPizzaByPrice
 
 /**
  * @function getPizzaByPrice
@@ -173,6 +172,7 @@ function updatePizza(req, res) {
             res.send(err);
         } else {
             // res.status(200).send(pizza);
+            pizza.picture = encodeBase64(pizza.picture);
             res.json({message: "Pizza successfully updated!", pizza });
         }
     });
@@ -184,7 +184,7 @@ function updatePizza(req, res) {
  * @return {string} in utf-8
  */
 function decodeBase64(base64){
-  return new Buffer.from(base64, 'base64');
+    return new Buffer.from(base64, 'base64').toString('utf8');
 }
 
 /**
@@ -193,7 +193,7 @@ function decodeBase64(base64){
  * @return {string} in base64
  */
 function encodeBase64(image){
-  return new Buffer.from(image);
+    return new Buffer.from(image).toString('base64');
 }
 
 // -------------------------------------------------------------------------- //
